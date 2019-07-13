@@ -1,5 +1,8 @@
 @charset "utf8";
 
+/*
+公共样式
+*/
 html body {
 	position: relative;
 	background-color: #FAFAFA;
@@ -7,6 +10,9 @@ html body {
 	padding-bottom: 20px;
 }
 
+/*
+头部样式
+*/
 .index-header {
 	width: 90%;
 	height: 50px;
@@ -18,56 +24,41 @@ html body {
 	margin-bottom: 20px;
 }
 
-.index-header .header-image {
+.index-header .header-box {
+	padding: 0;
+}
+
+.index-header .header-box .header-image {
 	width: 32px;
 	height: 32px;
 	float: left;
 	display: inline-block;
 	fill: #337ab7;
-	margin-top: -2px;
-	margin-right: 20px;
+	margin-top: 6px;
+	margin-right: 14px;
 }
 
 /* 对宽度过小的屏幕隐藏系统图标以保证标题正常显示 */
 @media screen and (max-width:500px) {
-	.index-header .header-image { display: none; }
+	.index-header .header-box .header-image { display: none; }
 }
 
-.index-header .header-text {
+.index-header .header-box .header-text {
 	height: 50px;
 	float: left;
 }
 
+/*
+表单样式
+*/
 .index-container {
 	width: 90%;
 	overflow: hidden;
 }
 
-.index-container .container-image {
-	height: 100%;
-	padding: 0;
-}
-
-.index-container .container-image .image-box {
-	float: left;
-	height: 100%;
-	width: 96%;
-	/* background-color: #F0F0F0; */
-	background-image: url(../img/indexs/01.png);
-	background-size: cover;
-	background-position: center;
-	box-shadow: 0 0 30px 34px #FAFAFA inset;
-}
-
 /* PC、Paid等大屏幕专用 */
 @media screen and (min-width:768px) {
-	.index-container .container-image { display: inline-block; }
 	.index-container { height: 400px; }
-}
-
-/* Phone等小屏幕屏幕专用 */
-@media screen and (max-width:767px) {
-	.index-container .container-image { display: none; }
 }
 
 .index-container .container-login {

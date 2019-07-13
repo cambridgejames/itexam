@@ -2,17 +2,17 @@
 <html lang="zh-CH">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no" />
 	<meta name="applicable-device" content="pc, mobile" />
 
-	<title>{{ pageTitle }}</title>
+	<title>hhh</title>
 
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="{{ resourceFolder }}/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="{{ resourceFolder }}/css/public-style.css" />
-	<link rel="stylesheet" type="text/css" href="{{ resourceFolder }}/css/hello-main-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/public-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/hello-main-style.css" />
 </head>
 <body>
 
@@ -116,36 +116,9 @@
 </body>
 
 <!-- SCRITPS -->
-<script type="text/javascript" charset="utf-8" src="{{ resourceFolder }}/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="{{ resourceFolder }}/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#hello-info-time").html("早上");
-		$("#container-aside").height($("#hello-container").height() - 40);
-	});
-	$("#collapse-parent").mouseleave(function() {
-		$('#collapse').collapse('hide');
-	});
-	$("#go-top").click(function() {
-		if($(window).scrollTop() > 10) {
-			$(window).scrollTop(0);
-		}
-	});
-
-	function SetFrameHeight(obj) {
-		if (document.getElementById) {
-			if (obj && !window.opera) {
-				if (obj.contentDocument && obj.contentDocument.body.offsetHeight) {
-					obj.height = obj.contentDocument.body.offsetHeight + 40; 
-				}
-				else if(obj.Document && obj.Document.body.scrollHeight) {
-					obj.height = obj.Document.body.scrollHeight + 40;
-				}
-			}
-		}
-		$("#container-aside").height($("#hello-container").height() - 40);
-	}
-</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/hello-events.js"></script>
 <!-- END SCRIPTS -->
 
 </html>

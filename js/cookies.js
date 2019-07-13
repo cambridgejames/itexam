@@ -1,13 +1,13 @@
 // JavaScript Document
 
-function SetCookie(name, value, date, time) {
+function setCookie(name, value, date, time) {
 	'use strict';
 	var exp = new Date((date).valueOf() + time * 86400000);
 	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + ";expires=" + exp;
 	return exp;
 }
 
-function GetCookieByName(name) {
+function getCookieByName(name) {
 	'use strict';
     var startIndex = document.cookie.indexOf(encodeURIComponent(name));
     if (startIndex > -1) {
@@ -22,7 +22,7 @@ function GetCookieByName(name) {
 	}
 }
 
-function DeleteCookieByName(name) {
+function deleteCookieByName(name) {
 	'use strict';
 	document.cookie = name + "=;expires=" + new Date(0);
 }
