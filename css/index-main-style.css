@@ -1,0 +1,136 @@
+@charset "utf8";
+
+html body {
+	position: relative;
+	background-color: #FAFAFA;
+	min-width: 300px;
+	padding-bottom: 20px;
+}
+
+.index-header {
+	width: 90%;
+	height: 50px;
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 50px;
+	color: #337ab7;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.index-header .header-image {
+	width: 32px;
+	height: 32px;
+	float: left;
+	display: inline-block;
+	fill: #337ab7;
+	margin-top: -2px;
+	margin-right: 20px;
+}
+
+/* 对宽度过小的屏幕隐藏系统图标以保证标题正常显示 */
+@media screen and (max-width:500px) {
+	.index-header .header-image { display: none; }
+}
+
+.index-header .header-text {
+	height: 50px;
+	float: left;
+}
+
+.index-container {
+	width: 90%;
+	overflow: hidden;
+}
+
+.index-container .container-image {
+	height: 100%;
+	padding: 0;
+}
+
+.index-container .container-image .image-box {
+	float: left;
+	height: 100%;
+	width: 96%;
+	/* background-color: #F0F0F0; */
+	background-image: url(../img/indexs/01.png);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 30px 34px #FAFAFA inset;
+}
+
+/* PC、Paid等大屏幕专用 */
+@media screen and (min-width:768px) {
+	.index-container .container-image { display: inline-block; }
+	.index-container { height: 400px; }
+}
+
+/* Phone等小屏幕屏幕专用 */
+@media screen and (max-width:767px) {
+	.index-container .container-image { display: none; }
+}
+
+.index-container .container-login {
+	position: relative;
+	height: 100%;
+	padding: 0;
+	background-color: #F0F0F0;
+}
+
+.index-container .container-login .login-title {
+	width: 90%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #444;
+	font-size: 18px;
+	font-weight: 400;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.index-container .container-login .login-form {
+	width: 90%;
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-control {
+	padding-right: 38px;
+}
+
+.form-icon {
+	position: absolute;
+	right: 12px;
+	top: 6px;
+	width: 20px;
+	height: 20px;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	color: #C8C8C8;
+}
+
+.index-container .container-login .login-tips {
+	width: 90%;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.login-tips .warning-tips {
+	float: left;
+}
+
+.login-tips .forgoten {
+	float: right;
+}
+
+.index-container .container-login .login-buttons {
+	width: 90%;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
