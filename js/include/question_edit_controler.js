@@ -40,6 +40,12 @@ function QuestionTableControler() {
 
 	this.updateAnswer = function(tableBody) {
 		// 修改正确答案时同步更新表格行颜色和底部答案汇总
+		var answer = this.getUpdateAnswer(tableBody);
+		tableBody.parent().parent().parent().parent().next().children(":nth-child(2)").html(answer);
+	}
+
+	this.getUpdateAnswer = function(tableBody) {
+		// 修改正确答案时同步更新表格航颜色并返回答案汇总
 		var currentbody = tableBody.children();
 		var answer = "";
 		for(var index = 0; index < currentbody.length; index++) {
@@ -52,7 +58,7 @@ function QuestionTableControler() {
 		}
 		answer = answer.substr(0, answer.length - 1);
 		if(answer.length === 0) { answer = "无"; }
-		tableBody.parent().parent().parent().parent().next().children(":nth-child(2)").html(answer);
+		return answer;
 	}
 }
 var questionTable = new QuestionTableControler();
@@ -115,5 +121,57 @@ $(document).on("click", "li[class*=form-horizontal]>div[class*=btn-r]>button[cla
 	if(confirm("真的要删除该试题吗？该操作将无法恢复")) {
 		$(event.target).parent().parent().remove();
 	}
+});
+
+/*
+ * 题目预览模态窗口控制器
+*/
+$(document).on("click", "li[class*=form-horizontal]>div[class*=btn-r]>button[class*=btn-info]", function(event) {
+	// 功能：预览当前题目
+	var appendNode = $(event.target)[0].nodeName === "SPAN" ? $(event.target).parent() : $(event.target);
+	var currentForm = appendNode.parent().siblings("form");
+	var modelBody = $("#previewModal").children().children().children(".modal-body");
+	var rows = currentForm.children(":last-child").find("table>tbody>tr>td:nth-child(3)");
+
+	switch(parseInt(currentForm.children(":first-child").children(":nth-child(2)").children("select").val())) {
+	case 1:
+		modelBody.children(":first-child").html("<p><b>1. 单项选择题</b></p>");
+		modelBody.find("form").html(parseTableBody("radio", rows));
+		modelBody.children(":last-child").html("<b>作答结果：</b><b>无</b>");
+		break;
+	case 2:
+		modelBody.children(":first-child").html("<p><b>1. 多项选择题</b></p>")
+		modelBody.find("form").html(parseTableBody("checkbox", rows));
+		modelBody.children(":last-child").html("<b>作答结果：</b><b>无</b>");
+		break;
+	default:
+		modelBody.children(":first-child").html("<p><b>1. 阅读题</b></p>");
+		modelBody.find("form").html("");
+		modelBody.children(":last-child").html("");
+	}
+
+	var currentArray = currentForm.children("div[data-effect=area]").children(":nth-child(2)").children("textarea").val().split("\n");
+	var currentContent = "";
+	$.each(currentArray, function(index, value) {
+		currentContent += "<p>" + value + "</p>";
+	});
+	modelBody.children(":nth-child(2)").html(currentContent);
+	$("#previewModal").modal("show");
+
+	function parseTableBody(type, rows) {
+		var content = "<table class=\"table\"><tbody>";
+		for(var index = 0; index < rows.length; index++) {
+			content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + String.fromCharCode(65 + index) + "</td><td>" + $(rows[index]).html() + "</td></tr>";
+		}
+		content += "</tbody></table>";
+		return content;
+	}
+});
+
+$(document).on("click", ".modal-body>form>table>tbody>tr>td>input", function(event) {
+	// 功能：为预览题目时更新答案汇总结果和表格样式提供事件绑定支持
+	var tableBody = $(event.target).parent().parent().parent();
+	var answer = questionTable.getUpdateAnswer(tableBody);
+	tableBody.parent().parent().next().children(":last-child").html(answer);
 });
 
