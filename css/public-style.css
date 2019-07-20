@@ -1,7 +1,19 @@
 @charset "utf8";
 
+html > body {
+	position: relative;
+	min-width: 300px;
+	background-color: #FAFAFA;
+}
+
 ul, li {
 	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	cursor: pointer;
 }
 
 .center-vertical {
@@ -33,4 +45,8 @@ ul, li {
 	line-height: 20px;
 	text-align: center;
 	margin-top: 34px;
+}
+
+.template-dom {
+	display: none;
 }

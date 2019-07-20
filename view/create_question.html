@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+	<meta name="applicable-device" content="pc, mobile">
+
+	<title>上传试题</title>
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/public-style.css">
+	<link rel="stylesheet" type="text/css" href="/css/row-boxs.css">
+	<link rel="stylesheet" type="text/css" href="/css/include/create_question_main.css">
+</head>
+<body>
+	<ul class="row-list header-tip">
+		<li class="row-box-md">
+			<div class="row-box-title">创建并上传题目</div>
+			<div class="message-box">
+				1. 题目类型:<b>单选</b>、<b>多选</b>和<b>阅读</b>。<br/>
+				2. 选项个数，<font color="red">阅读题为0</font>。<br>
+				3. 内容，传<font color="red">json</font>, 包含problem题目与options选项。<br/>
+				4. 这些提示消息是瞎写的，发布前会改。<br/>
+				5. 当前页面未加js代码。
+			</div>
+		</li>
+	</ul>
+	<ul class="row-list question-list">
+
+
+
+
+
+
+
+
+
+		<li class="form-horizontal row-box-md" role="form">
+			<form>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题目类型</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select id="1" class="form-control" data-type="type">
+							<option value="1" selected>单项选择题</option>
+							<option value="2">多项选择题</option>
+							<option value="3">阅读题</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">学科</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select class="form-control" data-type="subject">
+							<option value="1" selected>学科1</option>
+							<option value="2">学科2</option>
+							<option value="3">学科3</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" data-effect="area">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题干内容</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12 input-group">
+						<textarea class="form-control" rows="1">已知反应X+Y= M+N为放热反应,对该反应的下列说法中正确的是</textarea>
+						<span class="input-group-addon">插入公式</span>
+					</div>
+				</div>
+				<div data-effect="choice">
+					<div class="form-group">
+						<label class="col-lg-1 col-md-1 col-sm-1">选项</label>
+						<a data-qt="radio" class="btn btn-primary btn-r" role="button"><span class="glyphicon glyphicon-plus-sign"></span> 添加选项</a>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>正确答案</th>
+									<th>选项序号</th>
+									<th>选项内容</th>
+									<th>选项解析</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="radio" name="radio">
+									</td>
+									<td>A</td>
+									<td>X的能量一定高于M</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="radio">
+									</td>
+									<td>B</td>
+									<td>Y的能量一定高于N</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr class="success">
+									<td>
+										<input type="radio" name="radio" checked>
+									</td>
+									<td>C</td>
+									<td>X和Y的总能量一定高于M和N的总能量</td>
+									<td>X和Y的总能量一定高于M和N的总能量</td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" name="radio">
+									</td>
+									<td>D</td>
+									<td>因该反应为放热反应,故不必加热就可发生</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+			<div data-effect="answer">
+				<label class="col-lg-1 col-md-1 col-sm-1">正确答案</label>
+				<label class="col-lg-2 col-md-2 col-sm-2">C</label>
+			</div>
+			<div class="btn-r">
+				<button class="btn btn-info"><span class="glyphicon glyphicon-ok-sign"></span> 预览题目</button>
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> 删除题目</button>
+			</div>
+		</li>
+
+
+
+
+
+
+		<li class="form-horizontal row-box-md" role="form">
+			<form>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题目类型</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select id="1" class="form-control" data-type="type">
+							<option value="1">单项选择题</option>
+							<option value="2" selected>多项选择题</option>
+							<option value="3">阅读题</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">学科</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select class="form-control" data-type="subject">
+							<option value="1">学科1</option>
+							<option value="2">学科2</option>
+							<option value="3" selected>学科3</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" data-effect="area">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题干内容</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<textarea class="form-control" rows="1">已知反应X+Y= M+N为放热反应,对该反应的下列说法中错误的有</textarea>
+					</div>
+				</div>
+				<div data-effect="choice">
+					<div class="form-group">
+						<label class="col-lg-1 col-md-1 col-sm-1">选项</label>
+						<a data-qt="checkbox" class="btn btn-primary btn-r" role="button"><span class="glyphicon glyphicon-plus-sign"></span> 添加选项</a>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>正确答案</th>
+									<th>选项序号</th>
+									<th>选项内容</th>
+									<th>选项解析</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="success">
+									<td>
+										<input type="checkbox" name="checkbox" checked>
+									</td>
+									<td>A</td>
+									<td>X的能量一定高于M</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr class="success">
+									<td>
+										<input type="checkbox" name="checkbox" checked>
+									</td>
+									<td>B</td>
+									<td>Y的能量一定高于N</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="checkbox" name="checkbox">
+									</td>
+									<td>C</td>
+									<td>X和Y的总能量一定高于M和N的总能量</td>
+									<td>X和Y的总能量一定高于M和N的总能量</td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+								<tr class="success">
+									<td>
+										<input type="checkbox" name="checkbox" checked>
+									</td>
+									<td>D</td>
+									<td>因该反应为放热反应,故不必加热就可发生</td>
+									<td></td>
+									<td>
+										<a data-effect="fdelete">删除</a>
+										<a data-effect="fupdate">修改</a>
+										<a data-effect="fmoveup">上移</a>
+										<a data-effect="fmvdown">下移</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+			<div data-effect="answer">
+				<label class="col-lg-1 col-md-1 col-sm-1">正确答案</label>
+				<label class="col-lg-2 col-md-2 col-sm-2">A,B,D</label>
+			</div>
+			<div class="btn-r">
+				<button class="btn btn-info"><span class="glyphicon glyphicon-ok-sign"></span> 预览题目</button>
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> 删除题目</button>
+			</div>
+		</li>
+
+
+
+
+
+
+		<li class="form-horizontal row-box-md" role="form">
+			<form>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题目类型</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select class="form-control" data-type="type">
+							<option value="1">单项选择题</option>
+							<option value="2">多项选择题</option>
+							<option value="3" selected>阅读题</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">学科</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<select class="form-control" data-type="subject">
+							<option value="1">学科1</option>
+							<option value="2" selected>学科2</option>
+							<option value="3">学科3</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" data-effect="area">
+					<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题干内容</label>
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+						<textarea class="form-control" rows="6">吸热反应是指在过程中吸收热量的化学反应。例如赤热的炭和水蒸气作用生成水煤气（等体积的氢和一氧化碳的混合物）的反应。化学反应只有少数是吸热的。吸收热在热化学方程式中用负号（-）表示。回流reflux在精馏过程中由塔顶蒸气凝缩而得的液体中再由塔顶回入塔内的部分。可以补充易挥发组分，使得精馏操作能连续进行。
+生成物中的化学键的能量（键能）越强，稳定性越强；键能越弱，稳定性越差。
+例如：C+H2O=（高温）CO+H2。
+分解反应一般为吸热反应，如2NaHCO3→（加热）Na2CO3+H2O+CO2↑。
+注意：不是需要加热的反应都是吸热反应，燃烧大多数要“点燃”，都是放热反应。
+吸热反应就是在化学变化中，需要不断吸收大量热量的反应。
+不是所有需要使用催化剂的反应都是吸热反应。C+CO2=（高温）2CO是吸热反应。
+有些反应在开始时，需要提供一定的条件，如加热、点燃等，一旦反应进行开了，去掉条件反应继续进行，这样的反应是放热反应。
+有时根据需要，在化学反应方程式的右侧标明是吸热还是放热，通常是+Q吸热，-Q是放热。</textarea>
+					</div>
+				</div>
+				<div data-effect="choice"></div>
+			</form>
+			<div data-effect="answer"></div>
+			<div class="btn-r">
+				<button class="btn btn-info" data-toggle="modal" data-target="#previewModal"><span class="glyphicon glyphicon-ok-sign"></span> 预览题目</button>
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> 删除题目</button>
+			</div>
+		</li>
+
+
+
+
+
+
+
+
+
+	</ul>
+	<ul class="row-list bottom-function">
+		<li class="row-box-md">
+			<button id="bp-btn-cancel" class="btn btn-warning"><span class="glyphicon glyphicon-circle-arrow-left"></span> 取消</button>
+			<div class="btn-r">
+				<button id="bp-btn-new" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> 新建题目</button>
+				<button id="bp-btn-upload" class="btn btn-success"><span class="glyphicon glyphicon-circle-arrow-up"></span> 上传题目</button>
+			</div>
+		</li>
+	</ul>
+
+
+	<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">预览题目</h4>
+				</div>
+				<div class="modal-body">
+					<p><b>1. 阅读题</b></p>
+					<p>吸热反应是指在过程中吸收热量的化学反应。例如赤热的炭和水蒸气作用生成水煤气（等体积的氢和一氧化碳的混合物）的反应。化学反应只有少数是吸热的。吸收热在热化学方程式中用负号（-）表示。回流reflux在精馏过程中由塔顶蒸气凝缩而得的液体中再由塔顶回入塔内的部分。可以补充易挥发组分，使得精馏操作能连续进行。</p>
+					<p>生成物中的化学键的能量（键能）越强，稳定性越强；键能越弱，稳定性越差。</p>
+					<p>例如：C+H2O=（高温）CO+H2。</p>
+					<p>分解反应一般为吸热反应，如2NaHCO3→（加热）Na2CO3+H2O+CO2↑。</p>
+					<p>注意：不是需要加热的反应都是吸热反应，燃烧大多数要“点燃”，都是放热反应。</p>
+					<p>吸热反应就是在化学变化中，需要不断吸收大量热量的反应。</p>
+					<p>不是所有需要使用催化剂的反应都是吸热反应。C+CO2=（高温）2CO是吸热反应。</p>
+					<p>有些反应在开始时，需要提供一定的条件，如加热、点燃等，一旦反应进行开了，去掉条件反应继续进行，这样的反应是放热反应。</p>
+					<p>有时根据需要，在化学反应方程式的右侧标明是吸热还是放热，通常是+Q吸热，-Q是放热。</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="template-dom" id="template" style="display: none;">
+		<div data-id="template-question">
+			<li class="form-horizontal row-box-md" role="form">
+				<form>
+					<div class="form-group">
+						<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题目类型</label>
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+							<select class="form-control" data-type="type">
+								<option value="1" selected>单项选择题</option>
+								<option value="2">多项选择题</option>
+								<option value="3">阅读题</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">学科</label>
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+							<select class="form-control" data-type="subject"></select>
+						</div>
+					</div>
+					<div class="form-group" data-effect="area">
+						<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">题干内容</label>
+						<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+							<textarea class="form-control" rows="1"></textarea>
+						</div>
+					</div>
+					<div data-effect="choice"></div>
+				</form>
+				<div data-effect="answer"></div>
+				<div class="btn-r">
+					<button class="btn btn-info"><span class="glyphicon glyphicon-ok-sign"></span> 预览题目</button>
+					<button class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> 删除题目</button>
+				</div>
+			</li>
+		</div>
+		<div data-id="template-choice">
+			<div class="form-group">
+				<label class="col-lg-1 col-md-1 col-sm-1">选项</label>
+				<a data-qt="" class="btn btn-primary btn-r" role="button"><span class="glyphicon glyphicon-plus-sign"></span> 添加选项</a>
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr><th>正确答案</th><th>选项序号</th><th>选项内容</th><th>选项解析</th><th>操作</th></tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+		<div data-id="template-answer">
+			<label class="col-lg-1 col-md-1 col-sm-1">正确答案</label>
+			<label class="col-lg-2 col-md-2 col-sm-2">无</label>
+		</div>
+		<div data-id="template-function">
+			<a data-effect="fdelete">删除</a>
+			<a data-effect="fupdate">修改</a>
+			<a data-effect="fmoveup">上移</a>
+			<a data-effect="fmvdown">下移</a>
+		</div>
+	</div>
+
+<!-- SCRITPS -->
+<script type="text/javascript" charset="utf-8" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/jquery-cursor-position.min.js"></script><!-- jQuery光标位置插件 -->
+<script type="text/javascript" charset="utf-8" src="/js/base64.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/cookies.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/create_question_main.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/question_edit_controler.js"></script>
+<!-- END SCRIPTS -->
+
+</body>
+
+</html>

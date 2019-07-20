@@ -29,7 +29,8 @@ function logins() {
 					break;
 				case 1000: // 正常登录并跳转
 					setCookie(Base.encode("token"), Base.encode(data.data.token), new Date());
-					window.location.replace("./hello.html");
+					setCookie(Base.encode("currentuser"), Base.encode(JSON.stringify(data.data.user)), new Date());
+					window.location.replace("./global.html");
 					break;
 				default:
 					$("#textDanger").html("请求失败");

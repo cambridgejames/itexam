@@ -2,9 +2,11 @@ $(document).ready(function() {
 	$("#hello-info-time").html("早上");
 	$("#container-aside").height($("#hello-container").height() - 40);
 });
+
 $("#collapse-parent").mouseleave(function() {
 	$('#collapse').collapse('hide');
 });
+
 $("#go-top").click(function() {
 	if($(window).scrollTop() > 10) {
 		$(window).scrollTop(0);
