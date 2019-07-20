@@ -175,3 +175,21 @@ $(document).on("click", ".modal-body>form>table>tbody>tr>td>input", function(eve
 	tableBody.parent().parent().next().children(":last-child").html(answer);
 });
 
+/*
+ * 公式编辑控制器
+ */
+ $(document).on("click", ".input-group-addon", function(event) {
+ 	// 功能：单击插入公式按钮时触发按钮编辑器
+ 	var targInput = $(event.target).prev();
+ 	var index = targInput.getCurPos();
+ 	var content = targInput.val();
+ 	var equation = getEquation();
+ 	content = content.substr(0, index) + "$$" + equation + "$$" + content.substr(index, content.length);
+ 	targInput.val(content);
+ 	targInput.setCurPos(index + equation.length + 4, index + equation.length + 4);
+ });
+
+ function getEquation() {
+ 	return " ";
+ }
+
