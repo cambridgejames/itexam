@@ -159,7 +159,7 @@ $(document).on("click", "li[class*=form-horizontal]>div[class*=btn-r]>button[cla
 	$("#previewModal").modal("show");
 
 	function parseTableBody(type, rows) {
-		var content = "<table class=\"table\"><tbody>";
+		var content = "<table class=\"table table-hover\"><tbody>";
 		for(var index = 0; index < rows.length; index++) {
 			content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + String.fromCharCode(65 + index) + "</td><td>" + $(rows[index]).html() + "</td></tr>";
 		}
@@ -174,22 +174,4 @@ $(document).on("click", ".modal-body>form>table>tbody>tr>td>input", function(eve
 	var answer = questionTable.getUpdateAnswer(tableBody);
 	tableBody.parent().parent().next().children(":last-child").html(answer);
 });
-
-/*
- * 公式编辑控制器
- */
- $(document).on("click", ".input-group-addon", function(event) {
- 	// 功能：单击插入公式按钮时触发按钮编辑器
- 	var targInput = $(event.target).prev();
- 	var index = targInput.getCurPos();
- 	var content = targInput.val();
- 	var equation = getEquation();
- 	content = content.substr(0, index) + "$$" + equation + "$$" + content.substr(index, content.length);
- 	targInput.val(content);
- 	targInput.setCurPos(index + equation.length + 4, index + equation.length + 4);
- });
-
- function getEquation() {
- 	return " ";
- }
 

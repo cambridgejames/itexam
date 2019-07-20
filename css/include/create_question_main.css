@@ -35,7 +35,8 @@
 	padding: 0;
 }
 
-.form-group textarea {
+.form-group textarea,
+.modal-body textarea {
 	resize: vertical;
 	min-height: 34px;
 }
