@@ -1,0 +1,117 @@
+@charset: "utf8";
+
+body {
+	padding-top: 43px;
+}
+
+.row-box > div > label {
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.paper-info {
+	position: fixed;
+	top: 0;
+	padding: 8px;
+	font-size: 16px;
+	border-bottom: 1px solid #CCC;
+	background-color: #F8F8F8;
+	box-shadow: silver 0 0 10px 2px;
+	z-index: 1001;
+}
+
+.paper-info > div {
+	padding: 4px 6px;
+	height: 26px;
+	overflow: hidden;
+}
+
+.paper-info > .current-index {
+	text-align: right;
+}
+
+.question-view {
+	margin-top: 20px;
+	margin-bottom: 54px;
+}
+
+.bottom-rate {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	box-shadow: silver 0 0 10px 2px;
+}
+
+.bottom-rate > .bottom-rate-btn {
+	float: right;
+	margin-top: -33px;
+}
+
+.bottom-rate > .question-list-panel:not([class*=closed]) {
+	width: 100%;
+	height: 150px;
+	padding: 0;
+	max-height: 150px;
+	border: 1px solid #CCC;
+	background-color: #F8F8F8;
+	-webkit-transition: max-height .4s;
+	-moz-transition: max-height .4s;
+	-ms-transition: max-height .4s;
+	-o-transition: max-height .4s;
+	transition: max-height .4s;
+}
+
+.bottom-rate > .question-list-panel[class*=closed] {
+	max-height: 0;
+	background-color: #F8F8F8;
+	-webkit-transition: max-height .4s;
+	-moz-transition: max-height .4s;
+	-ms-transition: max-height .4s;
+	-o-transition: max-height .4s;
+	transition: max-height .4s;
+}
+
+.question-list-panel > ul {
+	padding: 15px;
+	width: 100%;
+	height: 100%;
+	cursor: default;
+	overflow-y: scroll;
+}
+
+.question-list-panel > ul > li {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+	border: 1px solid #CCC;
+	border-radius: 50%;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+.question-list-panel > ul > li:not([class*=answer-t]):not([class*=current]):hover {
+	background-color: #DDD;
+}
+
+.question-list-panel > ul > li[class*=answer-t] {
+	color: #FFF;
+	background-color: #5CB85C;
+}
+
+.question-list-panel > ul > li[class*=answer-t]:hover {
+	background-color: #4A9D44;
+}
+
+.question-list-panel > ul > li[class*=current],
+.question-list-panel > ul > li[class*=current]:hover {
+	background-color: #3C7AB8;
+	color: #FFF;
+}
+
+.btn-r {
+	float: right;
+}
+
