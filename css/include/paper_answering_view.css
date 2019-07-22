@@ -2,6 +2,8 @@
 
 body {
 	padding-top: 43px;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 .row-box > div > label {
@@ -33,6 +35,10 @@ body {
 .question-view {
 	margin-top: 20px;
 	margin-bottom: 54px;
+}
+
+.question-view tr {
+	cursor: pointer;
 }
 
 .bottom-rate {
