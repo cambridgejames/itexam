@@ -117,6 +117,12 @@ body {
 	color: #FFF;
 }
 
+.question-list-panel > ul > div {
+	margin-top: 10px;
+	width: 100%;
+	overflow: hidden;
+}
+
 .btn-r {
 	float: right;
 }

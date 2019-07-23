@@ -35,10 +35,12 @@ function PaperActionControler() {
 					paperAction.problems = data.message.problems;
 					$("#paper-name").html(paperAction.paperInfo.paper_name);
 					$("#paper-index").html("1/" + paperAction.problems.length);
-					$("#question-list").html("");
+					$("#question-list").children("li").remove();
+					var questionList = "";
 					for(var index = 1; index <= paperAction.problems.length; index++) {
-						$("#question-list").append("<li>" + index + "</li>");
+						questionList += "<li>" + index + "</li>";
 					}
+					$("#question-list").prepend(questionList);
 					$("#initModal").find("div[class*=modal-body]").find("span").html("加载用户数据");
 					paperAction.getUserData();
 				}
@@ -49,9 +51,42 @@ function PaperActionControler() {
 			}
 		});
 
-		this.fillQuestion = function(index) {
+		this.fillQuestion = function(question, index) {
 			// 将试题数据填入列表
-			var currentQuestion = this.problems[index];
+			var currentQuestion = this.problems[index - 1];
+			switch(parseInt(currentQuestion.type)) {
+			case 1:
+				question.find("div[data-effect=type]").html("<p>" + index + ". 单项选择题</p>");
+				question.find("form>table>tbody").html(parseTableBody("radio", currentQuestion.content.options));
+				question.find("label:first-child").html("作答结果：");
+				question.find("label:last-child").html("无");
+				break;
+			case 2:
+				question.find("div[data-effect=type]").html("<p>" + index + ". 多项选择题</p>");
+				question.find("form>table>tbody").html(parseTableBody("checkbox", currentQuestion.content.options));
+				question.find("label:first-child").html("作答结果：");
+				question.find("label:last-child").html("无");
+				break;
+			default:
+				question.find("div[data-effect=type]").html("<p>" + index + ". 阅读题</p>");
+				question.find("form>table>tbody").html("");
+				question.find("label:first-child").html("");
+				question.find("label:last-child").html("");
+			}
+			var currentContent = "";
+			$.each(currentQuestion.content.problem.split("\n"), function(index, value) {
+				currentContent += "<p>" + value + "</p>";
+			});
+			question.find("div[data-effect=area]").html(currentContent);
+
+			function parseTableBody(type, rows) {
+				var content = "<table class=\"table table-hover\"><tbody>";
+				$.each(rows, function(index, value) {
+					content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + index + "</td><td>" + value + "</td></tr>";
+				});
+				content += "</tbody></table>";
+				return content;
+			}
 		}
 	}
 
@@ -63,15 +98,23 @@ function PaperActionControler() {
 
 	this.display = function(index) {
 		// 试题切换动画
+		if(index > paperAction.problems.length) {
+			alert("已经是最后一题");
+			return;
+		}
 		// 根据序号大小切换动画方向
 		if(index === this.currentIndex) { return; }
 		var width = $(window).width();
 		if(index < this.currentIndex) { width = -width; }
 
 		this.animating = true;
+		$("#paper-index").html(index + "/" + paperAction.problems.length);
+		$("#question-list").children("li").removeClass("current");
+		$("#question-list").children("li:nth-child(" + index + ")").addClass("current");
 		var lastNode = $($("body").children(".row-list")[0]);
 		lastNode.after($("#template").html());
 		var currentNode = $($("body").children(".row-list")[1]);
+		paperAction.fillQuestion(currentNode, index);
 		currentNode.attr("style", "position:absolute;top:43px;margin-left:" + width + "px;");
 		lastNode.animate({"marginLeft":-width}, 400, function() {
 			lastNode.remove();
@@ -99,10 +142,13 @@ $(function() {
 	paperAction.getPaper();
 });
 
+$(document).on("click", "div[class*=question-view] button[data-effect=next]", function(event) {
+	paperAction.display(paperAction.currentIndex + 1);
+});
+
 $(document).on("click", "#question-list>li:not([class*=current])", function(event) {
+	// 点击底部列表切换
 	if(paperAction.animating) { return; }
-	$("#question-list").children("li").removeClass("current");
-	$(this).addClass("current");
 	paperAction.display($(this).index() + 1);
 });
 

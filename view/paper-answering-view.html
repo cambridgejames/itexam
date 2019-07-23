@@ -46,7 +46,14 @@
 		<span>隐藏题目列表</span><span class="caret"></span>
 	</a>
 	<div class="question-list-panel" id="question-list-panel">
-		<ul id="question-list"></ul>
+		<ul id="question-list">
+			<div>
+				<div class="btn-r">
+					<button class="btn btn-primary">保存试卷</button>
+					<button class="btn btn-success">提交试卷</button>
+				</div>
+			</div>
+		</ul>
 	</div>
 </div>
 
@@ -59,10 +66,10 @@
 				<table class="table table-hover"><tbody>	</tbody></table>
 			</form>
 			<div data-effect="answer">
-				<label class="col-lg-1 col-md-1 col-sm-1">作答结果：</label>
+				<label class="col-lg-1 col-md-1 col-sm-1"></label>
 				<label class="col-lg-2 col-md-2 col-sm-2"></label>
 			</div>
-			<button class="btn btn-primary btn-r">下一题</button>
+			<button class="btn btn-primary btn-r" data-effect="next">下一题</button>
 		</div>
 	</div>
 </div>
