@@ -103,7 +103,7 @@ $(document).on("click", "a[data-qt]", function(event) {
 	questionTable.insertSingleRow(appendNode.next().children("tbody"), appendNode.data("qt"));
 });
 
-$(document).on("click", "tbody>tr>td>input[type=radio],tbody>tr>td>input[type=checkbox]", function(event) {
+$(document).on("click", "thead+tbody>tr>td>input[type=radio],thead+tbody>tr>td>input[type=checkbox]", function(event) {
 	// 功能：修改正确答案时同步更新表格行颜色和底部答案汇总
 	var currentbody = $(event.target).parent().parent().parent()
 	questionTable.updateAnswer(currentbody);

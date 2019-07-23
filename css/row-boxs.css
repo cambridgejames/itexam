@@ -2,6 +2,7 @@
 
 .row-list {
 	width: 100%;
+	padding: 0;
 }
 
 .row-list > .row-box {
@@ -25,7 +26,6 @@
 	box-shadow:silver 0 0 10px;
 	position: relative;
 	display: block;
-	*zoom: 1;
 }
 
 .row-list > .row-box-sm {
@@ -37,7 +37,6 @@
 	box-shadow:silver 0 0 10px;
 	position: relative;
 	display: block;
-	*zoom: 1;
 }
 
 .row-list > .row-box:last-child,

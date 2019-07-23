@@ -11,70 +11,65 @@
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/public-style.css">
-	<link rel="stylesheet" type="text/css" href="/css/include/paper-answering-view.css">
+	<link rel="stylesheet" type="text/css" href="/css/row-boxs.css">
+	<link rel="stylesheet" type="text/css" href="/css/include/paper_answering_view.css">
 </head>
 <body>
 
+<!-- DIALOG -->
+<div class="modal fade" id="initModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h4>正在<span>下载试卷</span>...</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END DIALOG -->
 
+<div class="col-xs-12 paper-info">
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-10">
+		<span class="glyphicon glyphicon-log-out"></span>
+		<span id="paper-name"></span>
+	</div>
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 current-index" id="paper-index"></div>
+</div>
+
+<div class="row-list question-view"></div>
 
 <div class="bottom-rate" id="bottom-rate">
-	<a class="btn btn-info bottom-rate-btn" id="question-list-btn" data-toggle="collapse" data-parent="#bottom-rate" href="#question-list-panel">
+	<a class="btn btn-info bottom-rate-btn" id="question-list-btn">
 		<span>隐藏题目列表</span><span class="caret"></span>
 	</a>
-	<div class="collapse in" id="question-list-panel">
-		<div class="panel-body question-list-panel">
-			<ul>
-				<li class="bg-success">1</li>
-				<li class="bg-success">2</li>
-				<li class="bg-success">3</li>
-				<li class="bg-success">4</li>
-				<li class="bg-success">5</li>
-				<li class="bg-success">6</li>
-				<li class="bg-success">7</li>
-				<li>8</li>
-				<li>9</li>
-				<li>10</li>
-				<li>11</li>
-				<li>12</li>
-				<li>13</li>
-				<li>14</li>
-				<li>15</li>
-				<li>16</li>
-				<li>17</li>
-				<li>18</li>
-				<li>19</li>
-				<li>20</li>
-				<li>21</li>
-				<li>22</li>
-				<li>23</li>
-				<li>24</li>
-				<li>25</li>
-				<li>26</li>
-				<li>27</li>
-				<li>28</li>
-				<li>29</li>
-				<li>30</li>
-				<li>31</li>
-				<li>32</li>
-				<li>33</li>
-				<li>34</li>
-				<li>35</li>
-				<li>36</li>
-				<li>37</li>
-				<li>38</li>
-				<li>39</li>
-				<li>40</li>
-				<li>41</li>
-				<li>42</li>
-				<li>43</li>
-				<li>44</li>
-				<li>45</li>
-				<li>46</li>
-				<li>47</li>
-				<li>48</li>
-				<li>49</li>
-				<li>50</li>
-			</ul>
+	<div class="question-list-panel" id="question-list-panel">
+		<ul id="question-list">
+			<div>
+				<div class="btn-r">
+					<button class="btn btn-primary">保存试卷</button>
+					<button class="btn btn-success">提交试卷</button>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+
+<div class="template-dom" id="template" style="display: none;">
+	<div class="row-list question-view" style="display: none;">
+		<div class="row-box">
+			<div data-effect="type"></div>
+			<div data-effect="area"></div>
+			<form>
+				<table class="table table-hover"><tbody>	</tbody></table>
+			</form>
+			<div data-effect="answer">
+				<label class="col-lg-1 col-md-1 col-sm-1"></label>
+				<label class="col-lg-2 col-md-2 col-sm-2"></label>
+			</div>
+			<button class="btn btn-primary btn-r" data-effect="next">下一题</button>
 		</div>
 	</div>
 </div>
@@ -86,7 +81,9 @@
 <script type="text/javascript" charset="utf-8" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/base64.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/cookies.js"></script>
-<script type="text/javascript" charset="utf-8" src="/js/include/paper-answering-view.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/question_edit_controler.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/paper_answering_view.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/paper_action_controler.js"></script>
 <!-- END SCRIPTS -->
 
 </html>
