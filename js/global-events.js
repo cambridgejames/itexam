@@ -50,3 +50,9 @@ $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 	}
 });
 
+$(document).on("click", "span[data-effect=logout]", function() {
+	deleteCookieByName(Base.encode("token"));
+	deleteCookieByName(Base.encode("currentuser"));
+	window.location.replace("/");
+});
+
