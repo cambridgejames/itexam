@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+	<meta name="applicable-device" content="pc, mobile">
+
+	<title>试卷作答</title>
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/public-style.css">
+	<link rel="stylesheet" type="text/css" href="/css/row-boxs.css">
+	<link rel="stylesheet" type="text/css" href="/css/include/paper_answering_view.css">
+</head>
+<body>
+
+<!-- DIALOG -->
+<div class="modal fade" id="initModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h4>正在<span>下载试卷</span>...</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END DIALOG -->
+
+<div class="col-xs-12 paper-info">
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-10">
+		<span class="glyphicon glyphicon-log-out"></span>
+		<span id="paper-name"></span>
+	</div>
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 current-index" id="paper-index"></div>
+</div>
+
+<div class="row-list question-view"></div>
+
+<div class="bottom-rate" id="bottom-rate">
+	<a class="btn btn-info bottom-rate-btn" id="question-list-btn">
+		<span>隐藏题目列表</span><span class="caret"></span>
+	</a>
+	<div class="question-list-panel" id="question-list-panel">
+		<ul id="question-list">
+			<div>
+				<div class="btn-r">
+					<button class="btn btn-primary">保存试卷</button>
+					<button class="btn btn-success">提交试卷</button>
+				</div>
+			</div>
+		</ul>
+	</div>
+</div>
+
+<div class="template-dom" id="template" style="display: none;">
+	<div class="row-list question-view" style="display: none;">
+		<div class="row-box">
+			<div data-effect="type"></div>
+			<div data-effect="area"></div>
+			<form>
+				<table class="table table-hover"><tbody>	</tbody></table>
+			</form>
+			<div data-effect="answer">
+				<label class="col-lg-1 col-md-1 col-sm-1"></label>
+				<label class="col-lg-2 col-md-2 col-sm-2"></label>
+			</div>
+			<button class="btn btn-primary btn-r" data-effect="next">下一题</button>
+		</div>
+	</div>
+</div>
+	
+</body>
+
+<!-- SCRITPS -->
+<script type="text/javascript" charset="utf-8" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/base64.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/cookies.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/question_edit_controler.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/paper_answering_view.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/include/paper_action_controler.js"></script>
+<!-- END SCRIPTS -->
+
+</html>
