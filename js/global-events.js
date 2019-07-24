@@ -1,28 +1,52 @@
-$(document).ready(function() {
-	$("#hello-info-time").html("早上");
-	$("#container-aside").height($("#hello-container").height() - 40);
+$(function() {
+	var user = JSON.parse(Base.decode(getCookieByName(Base.encode("currentuser"))));
+	$("span[data-effect=username]").html(user.name);
+	var functionList = "<li class=\"selected\"><span class=\"glyphicon glyphicon-user\"></span> <span>个人信息</span></li>";
+	switch(user.role) {
+		case "student":
+		functionList += "<li><span class=\"glyphicon glyphicon-home\"></span> <span>班级</span></li><li><span class=\"glyphicon glyphicon-edit\"></span> <span>作业</span></li>";
+		break;
+		case "teacher":
+		functionList += "<li><span class=\"glyphicon glyphicon-book\"></span> <span>题库</span></li>";
+		case "admin":
+		functionList += "<li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>用户查询</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>试卷查询</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>成绩查询</span></li>";
+		default:
+	}
+	functionList += "<li><span class=\"glyphicon glyphicon-cog\"></span> <span>设置</span></li>";
+	$(".article-main").find("ol[class*=hide-scroll-bars]").html(functionList);
+	$(".article-main").find("ol[class*=hide-scroll-bars]").children("li:first-child").trigger("click");
 });
 
-$("#collapse-parent").mouseleave(function() {
-	$('#collapse').collapse('hide');
-});
-
-$("#go-top").click(function() {
-	if($(window).scrollTop() > 10) {
-		$(window).scrollTop(0);
+$(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
+	$(this).parent().children("li").removeClass("selected");
+	$(this).addClass("selected");
+	var listItem = $(this).children(":last-child").html();
+	switch(listItem) {
+	case "个人信息":
+		$("#main-frame").attr("src", "/view/personal_display.html");
+		break;
+	case "班级":
+		$("#main-frame").attr("src", "");
+		break;
+	case "作业":
+		$("#main-frame").attr("src", "/view/paper-answering-view.html");
+		break;
+	case "题库":
+		$("#main-frame").attr("src", "/view/create_question.html");
+		break;
+	case "用户查询":
+		$("#main-frame").attr("src", "");
+		break;
+	case "试卷查询":
+		$("#main-frame").attr("src", "");
+		break;
+	case "成绩查询":
+		$("#main-frame").attr("src", "");
+		break;
+	case "设置":
+		$("#main-frame").attr("src", "");
+		break;
+	default:
 	}
 });
 
-function SetFrameHeight(obj) {
-	if (document.getElementById) {
-		if (obj && !window.opera) {
-			if (obj.contentDocument && obj.contentDocument.body.offsetHeight) {
-				obj.height = obj.contentDocument.body.offsetHeight + 40; 
-			}
-			else if(obj.Document && obj.Document.body.scrollHeight) {
-				obj.height = obj.Document.body.scrollHeight + 40;
-			}
-		}
-	}
-	$("#container-aside").height($("#hello-container").height() - 40);
-}
