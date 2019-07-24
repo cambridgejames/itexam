@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no" />
 	<meta name="applicable-device" content="pc, mobile" />
 
-	<title>hhh</title>
+	<title>ITEXAM网上作业系统</title>
 
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -18,50 +18,43 @@
 
 <!-- 导航栏 -->
 <nav id="navbar" class="navbar navbar-fixed-top" role="navigation">
-	<a class="inner-header" href="/">
-		<img class="header-image center-vertical" src="/img/svg/icon.svg" width="34">
-		<div class="header-text">ITEXAM 网上作业系统</div>
-	</a>
-	<div id="collapse-parent" class="header-function" data-toggle="collapse" data-parent="#accordion" href="#collapse">
-		<img class="header-portrait center-vertical" src="/files/20190614143031.jpg" />
-		<div class="header-username"><span></span> <b class="caret"></b></div>
-		<ul id="collapse" class="collapse collapse-panel my-dropdown-menu">
-			<div class="inner-ul">
-				<li id="usr-info">
-					<div class="sr-only">账号信息</div>
-					<span class="glyphicon glyphicon-user"></span>
-					账号信息
-				</li>
-				<li id="personal-setting">
-					<div class="sr-only">个人设置</div>
-					<span class="glyphicon glyphicon-cog"></span>
-					个人设置
-				</li>
-				<li id="passwd-reset">
-					<div class="sr-only">修改密码</div>
-					<span class="glyphicon glyphicon-lock"></span>
-					修改密码
-				</li>
-				<li class="divider"></li>
-				<li id="logout">
-					<div class="sr-only">退出系统</div>
-					<span class="glyphicon glyphicon-log-out"></span>
-					退出系统
-				</li>
-			</div>
-		</ul>
+	<div class="inner-header">
+		<img src="/img/svg/icon_light.svg" />
+		<h4>ITEXAM</h4>
 	</div>
+	<ol id="collapse-parent" class="header-function" data-toggle="collapse" data-parent="#accordion" href="#collapse">
+		<li class="hidden-xs" data-effect="user">
+			<span class="glyphicon glyphicon-user"></span>
+			<span data-effect="username"></span>
+		</li>
+		<li class="visible-xs">
+			<span class="glyphicon glyphicon-align-left"></span>
+			<span data-effect="function">功能</span>
+		</li>
+		<li>
+			<span class="glyphicon glyphicon-log-out"></span>
+			<span data-effect="logout">退出</span>
+		</li>
+	</ol>
 </nav>
 <!-- END 导航栏 -->
 
-
+<div class="article-main">
+	<div class="navbar-side">
+		<ol class="hide-scroll-bars"></ol>
+	</div>
+	<!-- <div class="navbar-mask"></div> -->
+	<iframe id="main-frame" class="main-frame" src=""></iframe>
+</div>
 
 </body>
 
 <!-- SCRITPS -->
 <script type="text/javascript" charset="utf-8" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/hello-events.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/base64.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/cookies.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/global-events.js"></script>
 <!-- END SCRIPTS -->
 
 </html>
