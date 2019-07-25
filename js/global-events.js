@@ -63,7 +63,7 @@ $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 		$("#main-frame").attr("src", "");
 		break;
 	case "成绩查询":
-		$("#main-frame").attr("src", "");
+		$("#main-frame").attr("src", "/view/achievement_query.html");
 		break;
 	case "设置":
 		$("#main-frame").attr("src", "");
