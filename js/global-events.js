@@ -17,6 +17,10 @@ $(function() {
 	$(".article-main").find("ol[class*=hide-scroll-bars]").children("li:first-child").trigger("click");
 });
 
+$(document).on("click", "nav>.inner-header>img,nav>.inner-header>h4", function(event) {
+	window.location.replace("/");
+});
+
 $(document).on("click", "#collapse-parent>li[data-effect=function]", function(event) {
 	var navbarSide = $(".article-main>div:first-child");
 	if(navbarSide.hasClass("navbar-hidden")) {
