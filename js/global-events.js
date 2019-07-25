@@ -26,6 +26,14 @@ $(document).on("click", "#collapse-parent>li[data-effect=function]", function(ev
 	}
 });
 
+$(document).on("click", "#collapse-parent>li[data-effect=logout]", function(event) {
+	if(confirm("真的要退出吗？\n在退出前请确保您已保存所有更改")) {
+		deleteCookieByName(Base.encode("token"));
+		deleteCookieByName(Base.encode("currentuser"));
+		window.location.replace("/");
+	}
+});
+
 $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 	$(this).parent().children("li").removeClass("selected");
 	$(this).addClass("selected");

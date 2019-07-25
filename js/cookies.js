@@ -24,5 +24,5 @@ function getCookieByName(name) {
 
 function deleteCookieByName(name) {
 	'use strict';
-	document.cookie = name + "=;expires=" + new Date(0);
+	setCookie(name, "", -1, -1);
 }
