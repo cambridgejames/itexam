@@ -49,7 +49,7 @@ $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 		$("#main-frame").attr("src", "/view/personal_display.html");
 		break;
 	case "班级":
-		$("#main-frame").attr("src", "");
+		$("#main-frame").attr("src", "/view/function_not_open.html");
 		break;
 	case "作业":
 		$("#main-frame").attr("src", "/view/paper-answering-view.html");
@@ -58,16 +58,16 @@ $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 		$("#main-frame").attr("src", "/view/create_question.html");
 		break;
 	case "用户查询":
-		$("#main-frame").attr("src", "");
+		$("#main-frame").attr("src", "/view/function_not_open.html");
 		break;
 	case "试卷查询":
-		$("#main-frame").attr("src", "");
+		$("#main-frame").attr("src", "/view/function_not_open.html");
 		break;
 	case "成绩查询":
 		$("#main-frame").attr("src", "/view/achievement_query.html");
 		break;
 	case "设置":
-		$("#main-frame").attr("src", "");
+		$("#main-frame").attr("src", "/view/function_not_open.html");
 		break;
 	default:
 	}
