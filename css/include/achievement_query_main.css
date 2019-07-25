@@ -1,0 +1,27 @@
+@charset: "utf8";
+
+.query-list {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.col-lg-1, .col-md-1, .col-sm-1, .col-xs-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+label {
+	height: 34px;
+	padding: 0;
+	line-height: 34px;
+}
+
+td {
+	vertical-align: middle!important;
+}
+
+.btn-r {
+	float: right;
+	margin-top: -36px;
+}
+
