@@ -44,6 +44,7 @@ html > body {
 	float: left;
 	height: 26px;
 	margin: 10px 0 14px 10px;
+	cursor: pointer;
 }
 
 .inner-header > h4 {
@@ -54,6 +55,7 @@ html > body {
 	line-height: 30px;
 	color: #FFF;
 	margin: 10px 4px;
+	cursor: pointer;
 }
 
 .header-function {
