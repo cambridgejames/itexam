@@ -7,9 +7,9 @@ $(function() {
 		functionList += "<li><span class=\"glyphicon glyphicon-home\"></span> <span>班级</span></li><li><span class=\"glyphicon glyphicon-edit\"></span> <span>作业</span></li>";
 		break;
 		case "teacher":
-		functionList += "<li><span class=\"glyphicon glyphicon-book\"></span> <span>题库</span></li>";
+		functionList += "<li><span class=\"glyphicon glyphicon-book\"></span> <span>题库</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>成绩查询</span></li>";
 		case "admin":
-		functionList += "<li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>用户查询</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>试卷查询</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>成绩查询</span></li>";
+		functionList += "<li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>用户查询</span></li><li><span class=\"glyphicon glyphicon-list-alt\"></span> <span>试卷查询</span></li>";
 		default:
 	}
 	functionList += "<li><span class=\"glyphicon glyphicon-cog\"></span> <span>设置</span></li>";
@@ -39,6 +39,7 @@ $(document).on("click", "#collapse-parent>li[data-effect=logout]", function(even
 });
 
 $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
+	var user = JSON.parse(Base.decode(getCookieByName(Base.encode("currentuser"))));
 	$(this).parent().children("li").removeClass("selected");
 	$(this).addClass("selected");
 	$(".article-main>div:first-child").addClass("navbar-hidden");
