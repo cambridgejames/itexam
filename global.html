@@ -22,28 +22,30 @@
 		<img src="/img/svg/icon_light.svg" />
 		<h4>ITEXAM</h4>
 	</div>
-	<ol id="collapse-parent" class="header-function" data-toggle="collapse" data-parent="#accordion" href="#collapse">
+	<ol id="collapse-parent" class="header-function">
 		<li class="hidden-xs" data-effect="user">
 			<span class="glyphicon glyphicon-user"></span>
 			<span data-effect="username"></span>
 		</li>
-		<li class="visible-xs">
+		<li class="visible-xs" data-effect="function">
 			<span class="glyphicon glyphicon-align-left"></span>
-			<span data-effect="function">功能</span>
+			<span>功能</span>
 		</li>
-		<li>
+		<li data-effect="logout">
 			<span class="glyphicon glyphicon-log-out"></span>
-			<span data-effect="logout">退出</span>
+			<span>退出</span>
 		</li>
 	</ol>
 </nav>
 <!-- END 导航栏 -->
 
 <div class="article-main">
-	<div class="navbar-side">
+	<!-- 侧边栏 -->
+	<div class="navbar-side navbar-hidden">
 		<ol class="hide-scroll-bars"></ol>
 	</div>
-	<!-- <div class="navbar-mask"></div> -->
+	<div class="navbar-mask"></div>
+	<!-- END 侧边栏 -->
 	<iframe id="main-frame" class="main-frame" src=""></iframe>
 </div>
 

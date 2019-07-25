@@ -17,9 +17,19 @@ $(function() {
 	$(".article-main").find("ol[class*=hide-scroll-bars]").children("li:first-child").trigger("click");
 });
 
+$(document).on("click", "#collapse-parent>li[data-effect=function]", function(event) {
+	var navbarSide = $(".article-main>div:first-child");
+	if(navbarSide.hasClass("navbar-hidden")) {
+		navbarSide.removeClass("navbar-hidden");
+	} else {
+		navbarSide.addClass("navbar-hidden");
+	}
+});
+
 $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 	$(this).parent().children("li").removeClass("selected");
 	$(this).addClass("selected");
+	$(".article-main>div:first-child").addClass("navbar-hidden");
 	var listItem = $(this).children(":last-child").html();
 	switch(listItem) {
 	case "个人信息":

@@ -111,10 +111,6 @@ html > body {
 	z-index: 1002;
 }
 
-.navbar-side[class*=navbar-hidden] {
-	margin-left: -150px
-}
-
 .navbar-side > ol {
 	width: 100%;
 	height: 100%;
@@ -151,6 +147,7 @@ html > body {
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1001;
+	display: none;
 }
 
 .main-frame {
@@ -172,13 +169,16 @@ html > body {
 }
 
 @media screen and (min-width:451px) {
+	.navbar-side[class*=navbar-hidden] { margin-left: 0px; }
 }
 
 /* 对宽度过小的屏幕隐藏部分内容以保证布局正常显示 */
 @media screen and (max-width:450px) {
-	ol > li > span[data-effect] {display: none;}
+	/* ol > li > span[data-effect] {display: none;} */
 	.article-main { padding-left: 0; }
 	.article-main[class*=navbar-hidden] { padding-left: 0; }
+	.navbar-side[class*=navbar-hidden] { margin-left: -150px; }
+	.navbar-side:not([class*=navbar-hidden]) + .navbar-mask { display: block; }
 }
 
 /* 对高度过小的屏幕隐藏部分内容以保证布局正常显示 */
