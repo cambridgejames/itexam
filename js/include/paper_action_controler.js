@@ -73,16 +73,13 @@ function PaperActionControler() {
 				question.find("label:first-child").html("");
 				question.find("label:last-child").html("");
 			}
-			var currentContent = "";
-			$.each(currentQuestion.content.problem.split("\n"), function(index, value) {
-				currentContent += "<p>" + value + "</p>";
-			});
+			var currentContent = questionTable.contentToView(currentQuestion.content.problem);
 			question.find("div[data-effect=area]").html(currentContent);
 
 			function parseTableBody(type, rows) {
 				var content = "<table class=\"table table-hover\"><tbody>";
 				$.each(rows, function(index, value) {
-					content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + index + "</td><td>" + value + "</td></tr>";
+					content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + index + "</td><td>" + questionTable.contentToView(value) + "</td></tr>";
 				});
 				content += "</tbody></table>";
 				return content;
