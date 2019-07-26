@@ -41,6 +41,10 @@
 	min-height: 34px;
 }
 
+.equation-view {
+	margin-top: 10px;
+}
+
 @media screen and (max-width: 767px) {
 	.form-group table { margin-top: 10px; }
 }

@@ -60,6 +60,29 @@ function QuestionTableControler() {
 		if(answer.length === 0) { answer = "无"; }
 		return answer;
 	}
+
+	this.parseEquation = function(raw) {
+		// 将题目原始内容转为带公式的题目内容
+		var pattern = /(\$\$[\s\S]*?\$\$)/g;
+		$.each(raw.match(pattern), function(index, value) {
+			raw = raw.replace(value, katex.renderToString(value.substring(2, value.length - 2), {throwOnError: false}));
+		});
+		return raw;
+	}
+
+	this.contentToView = function(content) {
+		// 将题目原始内容转为带有段落的题目内容
+		var rawList = content.split("$$");
+		var result = "<p>";
+		$.each(rawList, function(index, value) {
+			if(index % 2 === 0) {
+				result += value.replace(new RegExp("\n","g"), "</p><p>");	// 题目
+			} else {
+				result += katex.renderToString(value, {throwOnError: false});	// 公式
+			}
+		});
+		return result + "</p>";
+	}
 }
 var questionTable = new QuestionTableControler();
 
@@ -150,18 +173,14 @@ $(document).on("click", "li[class*=form-horizontal]>div[class*=btn-r]>button[cla
 		modelBody.children(":last-child").html("");
 	}
 
-	var currentArray = currentForm.children("div[data-effect=area]").children(":nth-child(2)").children("textarea").val().split("\n");
-	var currentContent = "";
-	$.each(currentArray, function(index, value) {
-		currentContent += "<p>" + value + "</p>";
-	});
+	var currentContent = questionTable.contentToView(currentForm.children("div[data-effect=area]").children(":nth-child(2)").children("textarea").val());
 	modelBody.children(":nth-child(2)").html(currentContent);
 	$("#previewModal").modal("show");
 
 	function parseTableBody(type, rows) {
 		var content = "<table class=\"table table-hover\"><tbody>";
 		for(var index = 0; index < rows.length; index++) {
-			content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + String.fromCharCode(65 + index) + "</td><td>" + $(rows[index]).html() + "</td></tr>";
+			content += "<tr><td><input type=\"" + type + "\" name=\"" + type + "\"/></td><td>" + String.fromCharCode(65 + index) + "</td><td>" + questionTable.contentToView($(rows[index]).html()) + "</td></tr>";
 		}
 		content += "</tbody></table>";
 		return content;

@@ -25,6 +25,7 @@ $(document).on("click", ".input-group-addon", function(event) {
 });
 
 $(document).on("click", "#equationModal button[class*=btn-primary][data-dismiss]", function() {
+	// 功能：将公式填入题干内容
 	var equation = $("#equationModal").find("textarea[class*=form-control]").val();
 	if(equation.length === 0) { return; }
 	equation = "$$" + equation + "$$";
@@ -32,5 +33,15 @@ $(document).on("click", "#equationModal button[class*=btn-primary][data-dismiss]
 	content = content.substr(0, equationCtrl.index) + equation + content.substr(equationCtrl.index, content.length);
 	equationCtrl.object.val(content);
 	equationCtrl.object.setCurPos(equationCtrl.index + equation.length, equationCtrl.index + equation.length);
+});
+
+$(document).on("input propertychange", "#equationModal textarea[data-effect=equation]", function(event) {
+	// 功能：编辑公式并实施预览
+	try {
+		katex.render($(this).val(), $(this).next().next()[0]);
+	} catch(err) {
+		$(this).next().next().html("公式语法错误");
+	}
+	
 });
 

@@ -13,6 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/public-style.css">
 	<link rel="stylesheet" type="text/css" href="/css/row-boxs.css">
 	<link rel="stylesheet" type="text/css" href="/css/include/create_question_main.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
 </head>
 <body>
 	<ul class="row-list header-tip">
@@ -395,8 +397,9 @@
 					<h4 class="modal-title" id="myModalLabel">插入<img src="/img/svg/latex.svg" height="28">公式</h4>
 				</div>
 				<div class="modal-body">
-					<textarea class="form-control" rows="4"></textarea>
-					<div>公式预览:<span></span></div>
+					<textarea class="form-control" rows="4" data-effect="equation"></textarea>
+					<div class="equation-view">公式预览:</div>
+					<div class="equation-view"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -490,6 +493,7 @@
 <script type="text/javascript" charset="utf-8" src="/js/include/create_question_main.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/include/question_edit_controler.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/include/equation_editor.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script><!-- KaTeX公式渲染插件 -->
 <!-- END SCRIPTS -->
 
 </html>
