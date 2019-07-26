@@ -11,8 +11,10 @@ $(document).on("click", "#question-list-btn", function() {
 	// 功能：显示或隐藏试题列表
 	if($("#question-list-panel").hasClass("closed")) {
 		$("#question-list-panel").removeClass("closed");
+		$("#question-list-btn").children("span:first-child").html("隐藏题目列表");
 	} else {
 		$("#question-list-panel").addClass("closed");
+		$("#question-list-btn").children("span:first-child").html("展开题目列表");
 	}
 });
 
