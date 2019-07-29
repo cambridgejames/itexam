@@ -39,7 +39,7 @@ $(document).on("click", "li[data-setting=change-password]>div[data-effect=submit
 	var firstInput = $("li[data-setting=change-password]>div[data-effect=new] input[type=password]");
 	var secondInput = $("li[data-setting=change-password]>div[data-effect=repeat] input[type=password]");
 	var tester = /[\u4e00-\u9fa5]+|[" "]/g;
-	if(firstInput.val() === secondInput.val()) {
+	if(firstInput.val() !== secondInput.val()) {
 		$(this).prev().html("两次输入的新密码不一致");
 		return;
 	} else if(firstInput.val().length < 6 || firstInput.val().length > 50) {
