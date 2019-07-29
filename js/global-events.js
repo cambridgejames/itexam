@@ -67,7 +67,7 @@ $(document).on("click", ".article-main>.navbar-side>ol>li", function(event) {
 		$("#main-frame").attr("src", "/view/achievement_query.html");
 		break;
 	case "设置":
-		$("#main-frame").attr("src", "/view/function_not_open.html");
+		$("#main-frame").attr("src", "/view/custom_settings.html");
 		break;
 	default:
 	}
