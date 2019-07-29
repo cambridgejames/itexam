@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+	<meta name="applicable-device" content="pc, mobile">
+
+	<title>用户设置</title>
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/public-style.css">
+	<link rel="stylesheet" type="text/css" href="/css/row-boxs.css">
+	<link rel="stylesheet" type="text/css" href="/css/include/custom_settings_main.css">
+</head>
+<body>
+
+<ol class="row-list setting-list">
+	<li class="form-horizontal row-box" data-setting="change-password">
+		<div class="row-box-title">修改密码</div>
+		<div class="form-group" data-effect="raw">
+			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">原始密码</label>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+				<input type="password" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group" data-effect="new">
+			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">新密码</label>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12 input-group">
+				<input type="password" class="form-control"/>
+				<span class="input-group-btn" data-toggle="tooltip" data-placement="left" title="密码长度介于6到50字符之间，可以包含数字、英文大小写字母或特殊符号（!,%,&,@,#,$,^,*,?,_,~），不能包含汉字或空格">
+					<a class="btn btn-default" type="button">空</a>
+				</span>
+			</div>
+		</div>
+		<div class="form-group" data-effect="repeat">
+			<label class="col-lg-1 col-md-1 col-sm-1 col-xs-12">确认密码</label>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12 input-group">
+				<input type="password" class="form-control"/>
+				<span class="input-group-addon btn btn-default">
+					<font class="glyphicon glyphicon-ok" color="green"></font>
+				</span>
+			</div>
+		</div>
+		<div class="form-group" data-effect="submit">
+			<label class="text-danger"></label>
+			<button class="btn btn-danger btn-r">提交</button>
+		</div>
+	</li>
+</ol>
+
+</body>
+
+<!-- SCRITPS -->
+<script type="text/javascript" charset="utf-8" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/jquery-strength.js"></script><!-- jQuery密码强度验证插件 -->
+<script type="text/javascript" charset="utf-8" src="/js/include/custom_settings_main.js"></script>
+<!-- END SCRIPTS -->
+
+</html>

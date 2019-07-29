@@ -1,0 +1,32 @@
+@charset: "utf8";
+
+.setting-list {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.setting-list > li .form-group {
+	margin: 0 0 10px 0;
+}
+
+.setting-list > li .form-group:last-child {
+	margin-bottom: 0;
+}
+
+.form-group > label,
+.form-horizontal > div > label {
+	line-height: 34px;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.form-group > div,
+.form-group > ul,
+.form-group > ul > li {
+	padding: 0;
+}
+
+.btn-r {
+	float: right;
+}
+
